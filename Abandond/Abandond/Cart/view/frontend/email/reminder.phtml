@@ -1,0 +1,25 @@
+<!--@subject Abandoned Carts @-->
+ 
+ <head>
+<p>
+<h3>Hey {{var name}} </h3>  
+ </p>
+    <p>
+      You forget some items in your cart.
+      </p>
+</head>
+<p>
+  <table>
+
+    {{var proInfo|var}}
+
+  </table>
+
+  Total={{var subtotal}}$
+
+  </p> 
+<p> <h2>Thank You</h2></p>
+
+
+
+{{template config_path="design/email/footer_template"}}
