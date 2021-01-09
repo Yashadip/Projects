@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd"> 
+   <event name="wishlist_share">
+       <observer name="Get_reward_points" instance="Allure\Rewards\Observer\GetRewardOnShare" />
+   </event>
+    <event name="checkout_cart_product_add_after">
+       <observer name="checkout_cart_product_add_after" instance="Allure\Rewards\Observer\CheckoutCartAddObserver" />
+   </event>
+</config>

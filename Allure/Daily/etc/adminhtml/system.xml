@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+          <tab id="allure" translate="label" sortOrder="100">
+          <label>Sales Report</label>
+          </tab>
+
+          <section id="allure" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                <class>separator-top</class>
+                <label>Daily Report</label>
+                <tab>allure</tab>
+                <resource>Allure_Daily::config</resource>
+                <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+
+                <label>Daily Sales Report</label>
+
+                <field id="storeview" translate="label" type="multiselect"
+                sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>StoreViews</label>
+                    <source_model>Allure\Daily\Model\Config\Source\Stores</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                </group>
+
+                <group id="configurable_cron" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Sheduled Reports</label>
+                <field id="recipient" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Send</label>
+                <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                <depends>
+                <field id="allure/general/storeview">1</field>
+                </depends>
+                </field>
+                
+                <field id="frequency" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Frequency</label>
+                <source_model>Magento\Cron\Model\Config\Source\Frequency</source_model>
+                <backend_model>Allure\Daily\Model\Config\CronConfig</backend_model>
+                </field>
+                <field id="time" translate="label comment" sortOrder="3" type="time" showInDefault="1" showInWebsite="1" showInStore="1">
+               <label>Send Time</label>
+               </field>
+             </group>
+        </section>
+    </system>
+</config>

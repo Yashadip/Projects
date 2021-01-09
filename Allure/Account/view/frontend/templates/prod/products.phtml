@@ -1,0 +1,28 @@
+<?php $orders = $block->getOrder(); 
+//var_dump($orders); die();
+?>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sku</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($orders as $order){ ?>
+                    <tr>
+                        <td><?php echo  $order["name"]; ?></td>
+                        <td><?php echo  $order["sku"]; ?></td>
+                        <td><?php echo  $order["price"]; ?></td>
+                        <td><?php echo  $order["qty_ordered"]; ?></td>
+                       
+                    </tr>
+                <?php } ?>
+            </tbody>
+            
+        </table>
+    </div>
+   
